@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function admin()
+    public function index()
     {
         return view('user/admin');
     }
