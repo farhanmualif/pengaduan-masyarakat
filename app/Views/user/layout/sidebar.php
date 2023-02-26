@@ -11,8 +11,15 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="<?= base_url('/') ?>">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
+    </li>
 
-    <?php if (in_groups('admin')) : ?>
+
+    <?php if (in_groups('admin') || in_groups('pegawai')) : ?>
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -30,8 +37,13 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="buttons.html">Data Pegawai</a>
-                    <a class="collapse-item" href="cards.html">Data Masyarakat</a>
+
+                    <?php if (in_groups('admin')) : ?>
+                        <a class="collapse-item" href="<?= base_url('table-masyarakat') ?>">Data Masyarakat</a>
+                        <a class="collapse-item" href="<?= base_url('table-pegawai') ?>">Data Pegawai</a>
+                    <?php elseif (in_groups('pegawai')) : ?>
+                        <a class="collapse-item" href="<?= base_url('table-masyarakat') ?>">Data Masyarakat</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </li>
@@ -54,16 +66,16 @@
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <?php if (in_groups('admin')) : ?>
-                    <a class="collapse-item" href="buttons.html">Laporan Masuk</a>
-                    <a class="collapse-item" href="cards.html">Laporan Ditanggapi</a>
+                <?php if (in_groups('admin') || in_groups('pegawai')) : ?>
+                    <a class="collapse-item" href="<?= base_url('table-laporan') ?>">Laporan Masuk</a>
+                    <a class="collapse-item" href="<?= base_url('table-laporan') ?>">Laporan Ditanggapi</a>
                 <?php else : ?>
-                    <a class="collapse-item" href="c ards.html">Buat Laporan</a>
-                    <a class="collapse-item" href="buttons.html">Laporan Saya</a>
-                    <a class="collapse-item" href="cards.html">Laporan Terkirim</a>
-                    <a class="collapse-item" href="c ards.html">Laporan Direspons</a>
+                    <a class="collapse-item" href="<?= base_url('/masyarakat/form_pengaduan') ?>">Buat Laporan</a>
+                    <a class="collapse-item" href="<?= base_url('table-laporan') ?>">Laporan Saya</a>
+                    <a class="collapse-item" href="<?= base_url('table-laporan') ?>">Laporan Terkirim</a>
+                    <a class="collapse-item" href="<?= base_url('table-laporan') ?>">Laporan Direspons</a>
                 <?php endif ?>
-                <a class="collapse-item" href="cards.html">Laporan Dibatalkan</a>
+                <a class="collapse-item" href="<?= base_url('table-laporan') ?>">Laporan Dibatalkan</a>
 
             </div>
         </div>

@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url() ?>/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/css/main.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -96,7 +97,13 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url() ?>js/demo/chart-area-demo.js"></script>
     <script src="<?= base_url() ?>js/demo/chart-pie-demo.js"></script>
+    <!-- Jquery JS-->
+    <script src="<?= base_url() ?>/vendor/jquery/jquery.min.js"></script>
 
+
+    <!-- Main JS-->
+    <script src="<?= base_url() ?>/js/global.js"></script>
+    <script src="https://kit.fontawesome.com/5029dc7b63.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
