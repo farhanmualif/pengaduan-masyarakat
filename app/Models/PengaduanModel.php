@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class PengaduanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'pengaduan';
-    protected $primaryKey       = 'id';
+    protected $table            = 'tb_pengaduan';
+    protected $primaryKey       = 'id_pengaduan';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['judul_pengaduan', 'pesan_pengaduan', 'image'];
 
     // Dates
     protected $useTimestamps = false;

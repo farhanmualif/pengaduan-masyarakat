@@ -8,4 +8,8 @@ class Home extends BaseController
     {
         return view('user/home');
     }
+    public function profile()
+    {
+        return view('user/profile');
+    }
 }

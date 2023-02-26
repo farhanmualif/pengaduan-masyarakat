@@ -2,8 +2,16 @@
 
 namespace App\Controllers;
 
+use App\Models\PengaduanModel;
+
 class MasyarakatController extends BaseController
 {
+
+    protected $pengaduanModel;
+    function __construct()
+    {
+        $this->pengaduanModel = new PengaduanModel();
+    }
     public function index()
     {
         return view('user/masyarakat/masyarakat');
@@ -11,6 +19,16 @@ class MasyarakatController extends BaseController
 
     public function form_pengaduan()
     {
-        return view('user/masyarakat/form_pengaduan');
+        $data = [
+            'judul' => 'Form Pengaduan',
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('user/masyarakat/form_pengaduan', $data);
+    }
+
+    public function kirim_pengaduan()
+    {
+        // code ...
     }
 }

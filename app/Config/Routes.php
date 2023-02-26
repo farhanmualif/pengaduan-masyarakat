@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use CodeIgniter\Commands\Utilities\Routes;
+
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -30,11 +32,14 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+$routes->resource('pengaduan-api');
+
 
 $routes->get('/', 'Home::index');
 $routes->get('/table-pegawai', 'AdminController::table_pegawai', ['filter' => 'role:admin']);
 $routes->get('/table-masyarakat', 'AdminController::table_masyarakat', ['filter' => 'role:admin,pegawai']);
 $routes->get('/table-laporan', 'LaporanController::index');
+$routes->get('/my-profile', 'Home::profile');
 
 $routes->get('/masyarakat', 'MasyarakatController::index');
 $routes->get('/masyarakat/form_pengaduan', 'MasyarakatController::form_pengaduan');
